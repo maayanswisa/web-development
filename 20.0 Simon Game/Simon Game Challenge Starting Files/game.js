@@ -21,5 +21,6 @@ function playSound(colour) {
 
 $(".btn").click(function (e) {
   var userChosenColour = $(this).attr("id");
+  playSound(userChosenColour);
   userClickedPattern.push(userChosenColour);
 });
