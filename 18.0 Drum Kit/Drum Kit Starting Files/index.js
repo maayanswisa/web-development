@@ -5,12 +5,15 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
     playSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   });
 }
 
 // מאזינים ללחיצת מקש במקלדת
 document.addEventListener("keydown", function (event) {
-  playSound(event.key);
+  var key = event.key.toLowerCase();
+  playSound(key);
+  buttonAnimation(key);
 });
 
 // פונקציה שמשמיעה את הצליל המתאים
@@ -18,6 +21,18 @@ function playSound(key) {
   var soundFile = getSoundFile(key);
   var audio = new Audio("sounds/" + soundFile);
   audio.play();
+}
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+
+  if (activeButton) {
+    activeButton.classList.add("pressed");
+  }
+
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100); // האנימציה תרד אחרי 0.1 שניות
 }
 
 // פונקציה שמחזירה את שם הקובץ לפי המקש שנלחץ
