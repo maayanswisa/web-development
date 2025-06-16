@@ -12,16 +12,18 @@ inquirer
     {
       type: "input",
       name: "url",
-      message: "Type the url to make a QR code",
+      message: "Type the url to make a QR code ",
     },
   ])
   .then((answers) => {
     const url = answers.url;
     const qr_svg = qr.image(url);
+
     qr_svg.pipe(fs.createWriteStream("qr_image.png"));
-    fs.writeFileSync("URL.txt", url);
-    console.log("URL.txt Saved");
-    console.log("qr_image.png Saved");
+    console.log("qr_image.png Saved ");
+
+    fs.writeFileSync("URL.txt ", url);
+    console.log("URL.txt Saved ");
   })
   .catch((error) => {
     console.error(error);
