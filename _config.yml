@@ -1,0 +1,6 @@
+exclude:
+  - Backend/2.4 QR Code Project/node_modules
+  - Backend/4.0 EJS/node_modules
+  - Backend/node_modules
+  - node_modules
+  - .git
