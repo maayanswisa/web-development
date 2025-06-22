@@ -28,6 +28,24 @@ p {
   font-family: 'Indie Flower', cursive;
 }
 
+button {
+  display: inline-block;  
+  
+  padding: 10px 30px;
+  font-size: 1.5rem;
+  background-color: #4ECCA3;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Indie Flower', cursive;
+  
+}
+
+button:hover {
+  background-color: #377664;
+}
+
 img {
   width: 80%;
 }
