@@ -208,7 +208,7 @@ h2::after {
 footer {
   text-align: center;
   padding: 10px;
-  background: #023568;
+  background: hwb(212 71% 0% / 0.372);
   margin-top: 60px;
   border-top: 1px solid #ccc;
 }
