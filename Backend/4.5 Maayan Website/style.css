@@ -1,8 +1,8 @@
 /* === בסיס כללי === */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  color: #333;
+  background: linear-gradient(-135deg, #fefeff, #7db6fc);
+  color: #030303;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -10,13 +10,13 @@ body {
 
 /* === Header === */
 header {
-  background: linear-gradient(135deg, #0d6efd, #4f9efc);
-  color: #fff;
+  background: linear-gradient(135deg, #025feb, #b2d3fc);
+  color: #333333;
   padding: 50px 20px;
   text-align: center;
-  border-bottom-left-radius: 50% 10%;
-  border-bottom-right-radius: 50% 10%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 90% 20%;
+  border-bottom-right-radius: 90% 0%;
+  box-shadow: 0 8px 20px rgba(202, 71, 71, 0.1);
 }
 
 header h1 {
@@ -38,7 +38,7 @@ header p {
 
 .contact-links a {
   margin: 0 10px;
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   font-weight: bold;
   position: relative;
@@ -55,7 +55,7 @@ header p {
   background: #fff;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .contact-links a:hover::after {
@@ -64,7 +64,7 @@ header p {
 }
 
 .contact-links a:hover {
-  color: #ffe066;
+  color: #050360;
 }
 
 .contact-links .btn {
@@ -79,11 +79,7 @@ header p {
   margin-left: 10px;
 }
 
-.contact-links .btn:hover {
-  background: #ffe066;
-  color: #333;
-  border-color: #ffe066;
-}
+
 
 /* === Sections === */
 section {
@@ -94,7 +90,7 @@ section {
 
 h2 {
   text-align: center;
-  color: #0d6efd;
+  color: #062d68;
   font-size: 2em;
   margin-bottom: 30px;
   position: relative;
@@ -103,9 +99,9 @@ h2 {
 h2::after {
   content: '';
   display: block;
-  width: 60px;
-  height: 3px;
-  background: #0d6efd;
+  width: 150px;
+  height: 2px;
+  background: #2971dc;
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -113,7 +109,7 @@ h2::after {
 /* === About Me === */
 #summary p {
   font-size: 1.2em;
-  line-height: 1.8;
+  line-height: 1.7;
   text-align: center;
 }
 
@@ -131,8 +127,8 @@ h2::after {
 
 /* === Project Cards === */
 .project-card {
-  background: #fff;
-  border-radius: 20px;
+  background: #eeedf5a1;
+  border-radius: 30px;
   padding: 50px 30px 30px 30px;
   margin-bottom: 40px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
@@ -160,7 +156,7 @@ h2::after {
 .project-card h3 {
   margin-top: 0;
   font-size: 1.8em;
-  color: #0d6efd;
+  color: #03265b;
 }
 
 .project-card p {
@@ -172,7 +168,7 @@ h2::after {
 .project-card a {
   display: inline-block;
   margin-top: 20px;
-  color: #0d6efd;
+  color: #0c4293;
   text-decoration: none;
   font-weight: bold;
   position: relative;
@@ -211,8 +207,8 @@ h2::after {
 /* === Footer === */
 footer {
   text-align: center;
-  padding: 30px;
-  background: #e9ecef;
+  padding: 10px;
+  background: #023568;
   margin-top: 60px;
   border-top: 1px solid #ccc;
 }
