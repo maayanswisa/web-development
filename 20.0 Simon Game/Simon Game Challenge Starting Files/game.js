@@ -40,9 +40,10 @@ function animatePress(currentColour) {
   }, 100);
 }
 
-$(document).keypress(function () {
+$("#start-btn").click(function () {
   if (keyPress === false) {
     keyPress = true;
+    $("#start-btn").hide(); // מסתיר את הכפתור אחרי התחלה
     nextSequence();
   }
 });
