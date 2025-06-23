@@ -73,6 +73,9 @@ body {
   width: 80%;
   line-height: 1.5;
 }
+.btn, #start-btn {
+  transition: all 0.2s ease;
+}
 @media (max-width: 768px) {
   #level-title {
     font-size: 2rem;
