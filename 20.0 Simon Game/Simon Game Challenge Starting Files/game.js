@@ -43,7 +43,7 @@ function animatePress(currentColour) {
 $("#start-btn").click(function () {
   if (keyPress === false) {
     keyPress = true;
-    $("#start-btn").hide(); // מסתיר את הכפתור אחרי התחלה
+    $("#start-btn").hide();
     nextSequence();
   }
 });
@@ -66,7 +66,7 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
 
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press Start to Play Again");
     startOver();
   }
 }
@@ -75,4 +75,5 @@ function startOver() {
   level = 0;
   gamePattern = [];
   keyPress = false;
+  $("#start-btn").show();
 }
