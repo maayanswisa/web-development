@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>בדיחה יומית 🎭</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎭בדיחה יומית🎭</h1>
+      <% if (joke) { %> <% if (joke.type === 'single') { %>
+      <p class="joke"><%= joke.joke %></p>
+      <% } else if (joke.type === 'twopart') { %>
+      <p class="joke"><strong><%= joke.setup %></strong></p>
+      <p class="joke"><%= joke.delivery %></p>
+      <% } %> <% } else { %>
+      <p class="error"><%= error %></p>
+      <% } %>
+
+      <form action="/" method="get">
+        <select name="category" id="category">
+          <option value="Any">הכל</option>
+          <option value="Programming">תכנות</option>
+          <option value="Misc">שונות</option>
+          <option value="Dark">אפל</option>
+          <option value="Pun">משחקי מילים</option>
+          <option value="Spooky">מפחיד</option>
+          <option value="Christmas">חג מולד</option>
+        </select>
+        <label for="category">:בחר קטגוריה</label>
+
+        <button type="submit">בדיחה חדשה 🔁</button>
+      </form>
+    </div>
+  </body>
+</html>
