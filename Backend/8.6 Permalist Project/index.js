@@ -1,16 +1,22 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
-const port = 3000;
+app.set("view engine", "ejs");
+
+const port = process.env.PORT || 3000;
+const useSSL = process.env.NODE_ENV === "production";
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "permalist",
-  password: "mswisa123",
-  port: 5432,
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT,
+  ssl: useSSL ? { rejectUnauthorized: false } : false,
 });
 
 db.connect();
@@ -18,10 +24,7 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let items = [
-  { id: 1, title: "Buy milk" },
-  { id: 2, title: "Finish homework" },
-];
+let items = [];
 
 app.get("/", async (req, res) => {
   try {
