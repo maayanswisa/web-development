@@ -8,7 +8,6 @@ const app = express();
 app.set("view engine", "ejs");
 
 const port = process.env.PORT || 3000;
-const useSSL = process.env.NODE_ENV === "production";
 
 const db = new pg.Client({
   user: process.env.PGUSER,
@@ -16,7 +15,9 @@ const db = new pg.Client({
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
-  ssl: useSSL ? { rejectUnauthorized: false } : false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 db.connect();
