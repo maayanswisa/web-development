@@ -1,26 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <title>Maayan's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- Boot theme early to avoid flash -->
+    <script>
+      (function () {
+        try {
+          const saved = localStorage.getItem("theme"); // 'light' | 'dark' | null
+          const systemDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          const theme = saved || (systemDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f1115" />
+    <meta
+      name="description"
+      content="Maayan Swisa — Full-Stack Developer portfolio. React, Node.js, Express, MongoDB, PostgreSQL."
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header class="fade-in">
-      <h1>Hello, I'm Maayan 👩‍💻</h1>
-      <p>Junior Full-Stack Developer | Tel Aviv, Israel</p>
+      <h1>Maayan 👩‍💻</h1>
+      <h2>Full-Stack Developer | Tel Aviv, Israel</h2>
+
+      <!-- Theme toggle -->
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Toggle color theme"
+        aria-pressed="false"
+      >
+        <span class="theme-icon" data-light="🌞" data-dark="🌙">🌙</span>
+        <span class="theme-text">Theme</span>
+      </button>
+
       <p class="contact-links">
-        <a href="CV - Maayan Swisa.pdf" target="_blank"> Resume</a>
+        <a href="Maayan Swisa Resume.pdf" target="_blank" rel="noopener"
+          >Resume</a
+        >
       </p>
       <div class="contact-links">
         <a href="mailto:maayanswisa9@gmail.com">Email</a>
         <a
           href="https://www.linkedin.com/in/maayan-swisa-programmer/"
           target="_blank"
+          rel="noopener noreferrer"
           >LinkedIn</a
         >
-        <a href="https://github.com/maayanswisa" target="_blank">GitHub</a>
+        <a
+          href="https://github.com/maayanswisa"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
       </div>
     </header>
 
@@ -45,206 +87,333 @@
         </li>
         <li>
           <strong>Front-End:</strong> React.js, Next.js, Tailwind CSS, Bootstrap
-          5, Flexbox, DOM Manipulation
+          5
         </li>
-        <li>
-          <strong>Back-End:</strong> Node.js, Express.js, EJS, RESTful APIs
-        </li>
+        <li><strong>Back-End:</strong> Node.js, Express.js, REST APIs</li>
         <li><strong>Databases:</strong> MongoDB, PostgreSQL</li>
         <li>
-          <strong>Tools & Concepts:</strong> Git, GitHub, VSCode, Postman,
-          Responsive Design, MVC, Agile
+          <strong>Tools & Concepts:</strong> Git, GitHub, VSCode, Postman, MVC,
+          Agile, CI/CD, Docker
         </li>
       </ul>
     </section>
 
     <section id="projects" class="fade-in">
       <h2>My Projects</h2>
-
-      <div class="project-card fade-up">
-        <span class="project-icon">🌍</span>
-        <h3>World Map Tracker</h3>
-        <p>
-          A web app where users select a color and mark visited countries on an
-          interactive world map. Built with Node.js, Express, EJS, and
-          PostgreSQL.
-        </p>
-        <a href="https://family-travel-the-world.onrender.com/" target="_blank">
-          🎬 View Live Demo</a
-        >
-        |
-        <a
-          href="https://github.com/maayanswisa/Family-Travel-The-World"
-          target="_blank"
-        >
-          💻 View Code on GitHub</a
-        >
-        <small style="display: block; margin-top: 5px">
-          🕒 Hosted on Render — may take up to a minute to load.
-        </small>
-      </div>
-
-      <div class="project-card fade-up">
-        <span class="project-icon">📝</span>
-        <h3>To-Do List</h3>
-        <p>
-          A full-stack task management app built with Node.js, Express, and
-          PostgreSQL. Users can add, update, and delete tasks easily.
-        </p>
-        <div class="project-links">
-          <a href="https://to-do-list-79ow.onrender.com/" target="_blank"
+      <div class="grid">
+        <div class="project-card fade-up">
+          <span class="project-icon">🌍</span>
+          <h3>World Map Tracker</h3>
+          <p>
+            A web app where users select a color and mark visited countries on
+            an interactive world map. Built with Node.js, Express, EJS, and
+            PostgreSQL.
+          </p>
+          <a
+            href="https://family-travel-the-world.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             >🎬 Live Demo</a
           >
           |
-          <a href="https://github.com/maayanswisa/To-Do-List" target="_blank"
+          <a
+            href="https://github.com/maayanswisa/Family-Travel-The-World"
+            target="_blank"
+            rel="noopener noreferrer"
+            >💻 GitHub Code</a
+          >
+          <small class="loading-note"
+            >🕒 Hosted on Render — may take up to a minute to load.</small
+          >
+        </div>
+
+        <div class="project-card fade-up">
+          <span class="project-icon">📝</span>
+          <h3>To-Do List</h3>
+          <p>
+            A full-stack task management app built with Node.js, Express, and
+            PostgreSQL. Users can add, update, and delete tasks easily.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://to-do-list-79ow.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🎬 Live Demo</a
+            >
+            |
+            <a
+              href="https://github.com/maayanswisa/To-Do-List"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💻 GitHub Code</a
+            >
+          </div>
+          <small class="loading-note"
+            >🕒 Hosted on Render — may take up to a minute to load.</small
+          >
+        </div>
+
+        <div class="project-card fade-up">
+          <span class="project-icon">🧩</span>
+          <h3>Simon Says</h3>
+          <p>
+            Watch the colors, repeat the pattern — and see how long you last!
+            Simple, fun, and a real brain teaser.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://maayanswisa.github.io/Simon-Game/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🎬 Live Demo</a
+            >
+            |
+            <a
+              href="https://github.com/maayanswisa/Simon-Game"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💻 GitHub Code</a
+            >
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <span class="project-icon">🎭</span>
+          <h3>Daily Joke</h3>
+          <p>
+            A fun and interactive web app that fetches a random joke every time
+            you visit!
+          </p>
+          <div class="project-links">
+            <a
+              href="https://daily-joke-0lv8.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🎬 Live Demo</a
+            >
+            |
+            <a
+              href="https://github.com/maayanswisa/Daily-Joke"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💻 GitHub Code</a
+            >
+          </div>
+          <small class="loading-note"
+            >🕒 Hosted on Render — may take up to a minute to load.</small
+          >
+        </div>
+
+        <div class="project-card fade-up">
+          <span class="project-icon">🎲</span>
+          <h3>Dice Game</h3>
+          <p>
+            A simple dice rolling game built with HTML, CSS, and JavaScript.
+            Click Play to roll the dice!
+          </p>
+          <a
+            href="https://maayanswisa.github.io/Dice-Game/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >🎬 Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/maayanswisa/Dice-Game"
+            target="_blank"
+            rel="noopener noreferrer"
             >💻 GitHub Code</a
           >
         </div>
-        <small class="loading-note">
-          🕒 Hosted on Render — may take up to a minute to load.
-        </small>
-      </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🧩</span>
-        <h3>Simon Says</h3>
-        <p>
-          Watch the colors, repeat the pattern — and see how long you last!
-          Simple, fun, and a real brain teaser.
-        </p>
-        <div class="project-links">
-          <a href="https://maayanswisa.github.io/Simon-Game/" target="_blank">
-            🎬 View Live Demo</a
-          >
-          |
-          <a href="https://github.com/maayanswisa/Simon-Game" target="_blank">
-            💻 View Code on GitHub</a
+        <div class="project-card fade-up">
+          <span class="project-icon">📝</span>
+          <h3>Blog API</h3>
+          <p>
+            A full-stack blog app with a custom RESTful API. Create, edit, and
+            delete posts with a sleek and responsive interface.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://blog-api-frontend-r5jf.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🎬 Live Demo</a
+            >
+            |
+            <a
+              href="https://github.com/maayanswisa/Blog-API"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💻 GitHub Code</a
+            >
+          </div>
+          <small class="loading-note"
+            >🕒 Hosted on Render — may take up to a minute to load.</small
           >
         </div>
-      </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🎭</span>
-        <h3>Daily Joke</h3>
-        <p>
-          A fun and interactive web app that fetches a random joke every time
-          you visit!
-        </p>
-        <div class="project-links">
-          <a href="https://daily-joke-0lv8.onrender.com/" target="_blank">
-            🎬 View Live Demo
-          </a>
-          |
-          <a href="https://github.com/maayanswisa/Daily-Joke" target="_blank">
-            💻 View Code on GitHub
-          </a>
-        </div>
-        <small class="loading-note">
-          🕒 Hosted on Render — may take up to a minute to load.
-        </small>
-      </div>
-
-      <div class="project-card fade-up">
-        <span class="project-icon">🎲</span>
-        <h3>Dice Game</h3>
-        <p>
-          A simple dice rolling game built with HTML, CSS, and JavaScript. Click
-          Play to roll the dice!
-        </p>
-        <a href="https://maayanswisa.github.io/Dice-Game/" target="_blank">
-          🎬 View Live Demo</a
-        >
-        |
-        <a href="https://github.com/maayanswisa/Dice-Game" target="_blank">
-          💻 View Code on GitHub</a
-        >
-      </div>
-
-      <div class="project-card fade-up">
-        <span class="project-icon">📝</span>
-        <h3>Blog API</h3>
-        <p>
-          A full-stack blog app with a custom RESTful API. Create, edit, and
-          delete posts with a sleek and responsive interface.
-        </p>
-        <div class="project-links">
+        <div class="project-card fade-up">
+          <span class="project-icon">🥁</span>
+          <h3>Drum Kit</h3>
+          <p>
+            Interactive online drum kit — play realistic drum sounds using your
+            keyboard or mouse and unleash your inner drummer!
+          </p>
           <a
-            href="https://blog-api-frontend-r5jf.onrender.com/"
+            href="https://maayanswisa.github.io/Drum-Kit/"
             target="_blank"
-          >
-            🎬 View Live Demo</a
+            rel="noopener noreferrer"
+            >🎬 Live Demo</a
           >
           |
-          <a href="https://github.com/maayanswisa/Blog-API" target="_blank">
-            💻 View Code on GitHub</a
+          <a
+            href="https://github.com/maayanswisa/Drum-Kit"
+            target="_blank"
+            rel="noopener noreferrer"
+            >💻 GitHub Code</a
           >
         </div>
-        <small class="loading-note">
-          🕒 Hosted on Render — may take up to a minute to load.
-        </small>
-      </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🥁</span>
-        <h3>Drum Kit</h3>
-        <p>
-          Interactive online drum kit — play realistic drum sounds using your
-          keyboard or mouse and unleash your inner drummer!
-        </p>
-        <a href="https://maayanswisa.github.io/Drum-Kit/" target="_blank">
-          🎬 View Live Demo</a
-        >
-        |
-        <a href="https://github.com/maayanswisa/Drum-Kit" target="_blank">
-          💻 View Code on GitHub</a
-        >
-      </div>
+        <div class="project-card fade-up">
+          <span class="project-icon">📝</span>
+          <h3>Keeper Notes App</h3>
+          <p>
+            A responsive note-taking web app built with React. Users can add and
+            delete notes with a modern, Material-UI-based interface, including
+            animated buttons and conditional rendering.
+          </p>
+          <a
+            href="https://ngnmnq.csb.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >🎬 Live Demo</a
+          >
+        </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🍳</span>
-        <h3>Recipe Android App</h3>
-        <p>
-          An Android app for recipe search. You can find a variety of food types
-          and detailed recipes with a YouTube link for precise instructions.
-          Save your favorite meals to prepare again in the future. Enjoy your
-          meal!
-        </p>
-        <a href="https://github.com/maayanswisa/Cookbook" target="_blank">
-          💻 View Code on GitHub</a
-        >
-      </div>
+        <div class="project-card fade-up">
+          <span class="project-icon">🍳</span>
+          <h3>Recipe Android App</h3>
+          <p>
+            An Android app for recipe search. Find a variety of food types and
+            detailed recipes with a YouTube link for precise instructions. Save
+            your favorite meals to prepare again in the future.
+          </p>
+          <a
+            href="https://github.com/maayanswisa/Cookbook"
+            target="_blank"
+            rel="noopener noreferrer"
+            >💻 GitHub Code</a
+          >
+        </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🛍️</span>
-        <h3>E-Commerce Website</h3>
-        <p>
-          Built a responsive fashion store with product listings, cart, and user
-          authentication. Used React Hooks and Router for modular design.
-          Backend handled orders and user sessions with Express and MongoDB.
-        </p>
-        <a
-          href="https://github.com/maayanswisa/E-Commerce-Website"
-          target="_blank"
-        >
-          💻 View Code on GitHub</a
-        >
-      </div>
+        <div class="project-card fade-up">
+          <span class="project-icon">🛍️</span>
+          <h3>E-Commerce Website</h3>
+          <p>
+            Responsive fashion store with product listings, cart, and user
+            authentication. React Hooks & Router on the front, Express & MongoDB
+            on the back.
+          </p>
+          <a
+            href="https://github.com/maayanswisa/E-Commerce-Website"
+            target="_blank"
+            rel="noopener noreferrer"
+            >💻 GitHub Code</a
+          >
+        </div>
 
-      <div class="project-card fade-up">
-        <span class="project-icon">🎮</span>
-        <h3>Gamers Android App</h3>
-        <p>
-          An Android app for searching video games. Filter by types, see full
-          details, and get a direct link to play.
-        </p>
-        <a href="https://github.com/maayanswisa/Gamers" target="_blank">
-          💻 View Code on GitHub</a
-        >
+        <div class="project-card fade-up">
+          <span class="project-icon">🎮</span>
+          <h3>Gamers Android App</h3>
+          <p>
+            Android app for searching video games. Filter by types, see full
+            details, and get a direct link to play.
+          </p>
+          <a
+            href="https://github.com/maayanswisa/Gamers"
+            target="_blank"
+            rel="noopener noreferrer"
+            >💻 GitHub Code</a
+          >
+        </div>
       </div>
     </section>
 
     <footer>
       <p>© 2025 Maayan Swisa. All rights reserved.</p>
     </footer>
+
+    <!-- Scripts (after DOM is ready) -->
+    <script>
+      // Reveal on scroll
+      (function revealOnScroll() {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("reveal");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        document
+          .querySelectorAll(".fade-in, .fade-up")
+          .forEach((el) => io.observe(el));
+      })();
+
+      // Spotlight hover on project cards
+      (function spotlight() {
+        document.querySelectorAll(".project-card").forEach((card) => {
+          card.addEventListener("pointermove", (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+            card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+          });
+        });
+      })();
+
+      // Theme toggle
+      (function setupTheme() {
+        const root = document.documentElement;
+        const btn = document.getElementById("theme-toggle");
+        const icon = btn?.querySelector(".theme-icon");
+
+        function syncButton() {
+          if (!btn || !icon) return;
+          const isDark = root.getAttribute("data-theme") === "dark";
+          btn.setAttribute("aria-pressed", String(isDark));
+          icon.textContent = isDark
+            ? icon.dataset.dark || "🌙"
+            : icon.dataset.light || "🌞";
+        }
+
+        btn?.addEventListener("click", () => {
+          const next =
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+          syncButton();
+        });
+
+        if (!localStorage.getItem("theme")) {
+          const mq = window.matchMedia("(prefers-color-scheme: dark)");
+          const handler = (e) => {
+            root.setAttribute("data-theme", e.matches ? "dark" : "light");
+            syncButton();
+          };
+          if (mq.addEventListener) mq.addEventListener("change", handler);
+          else if (mq.addListener) mq.addListener(handler);
+        }
+
+        syncButton();
+      })();
+    </script>
   </body>
 </html>
